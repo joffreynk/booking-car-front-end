@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { signUpUser } from '../redux/auth/SignUp';
 import fetchedImgSrc from '../images/cover-image.jpg';
 
 const Registration = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [name, setName] = useState('');
   const [username, setUser_name] = useState('');
@@ -23,6 +24,7 @@ const Registration = () => {
       profile_picture: 'profile not exist',
     };
     dispatch(signUpUser(userInfo));
+    navigate('/vehicles');
   };
 
   return (
