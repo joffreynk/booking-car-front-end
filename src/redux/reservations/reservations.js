@@ -12,7 +12,7 @@ export const getReservations = createAsyncThunk(
   async () => {
     const reservationArr = [];
     const user = JSON.parse(localStorage.getItem('user'));
-    const response = await fetch('https://rails-uccq.onrender.com/api/v1/reservations', {
+    const response = await fetch('http://localhost:3000/api/v1/reservations', {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -40,7 +40,7 @@ export const addReservation = createAsyncThunk(
   ADD_RESERVATION,
   async (reservationInfo) => {
     const user = JSON.parse(localStorage.getItem('user'));
-    const response = await fetch('https://rails-uccq.onrender.com/api/v1/reservations', {
+    const response = await fetch('http://localhost:3000/api/v1/reservations', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -58,7 +58,7 @@ export const deleteReservation = createAsyncThunk(
   DELETE_RESERVATION,
   async (id) => {
     const user = JSON.parse(localStorage.getItem('user'));
-    await fetch(`https://rails-uccq.onrender.com/api/v1/reservations/${id}`, {
+    await fetch(`http://localhost:3000/api/v1/reservations/${id}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',

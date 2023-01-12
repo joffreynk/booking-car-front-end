@@ -9,7 +9,7 @@ export const getVehicles = createAsyncThunk(
   async () => {
     const vehicleList = [];
     const user = JSON.parse(localStorage.getItem('user'));
-    const response = await fetch('https://rails-uccq.onrender.com/api/v1/vehicles', {
+    const response = await fetch('http://localhost:3000/api/v1//vehicles', {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -38,7 +38,7 @@ export const addVehicle = createAsyncThunk(
   ADD_VEHICLE,
   async (vehicleInfo) => {
     const user = JSON.parse(localStorage.getItem('user'));
-    const response = await fetch('https://rails-uccq.onrender.com/api/v1/vehicles', {
+    const response = await fetch('http://localhost:3000/api/v1/vehicles', {
       method: 'POST',
       headers: {
         Authorization: user.token,
@@ -54,7 +54,7 @@ export const deleteVehicle = createAsyncThunk(
   DELETE_VEHICLE,
   async (id) => {
     const user = JSON.parse(localStorage.getItem('user'));
-    await fetch(`https://rails-uccq.onrender.com/api/v1/vehicles/${id}`, {
+    await fetch(`http://localhost:3000/api/v1/vehicles/${id}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
