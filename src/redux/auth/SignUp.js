@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const signUpUser = createAsyncThunk('SIGN_UP', async (userinfo) => {
-  const response = await fetch('https://rails-uccq.onrender.com/api/v1/users', {
+  const response = await fetch('http://localhost:3000/api/v1/users', {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
@@ -10,6 +10,10 @@ export const signUpUser = createAsyncThunk('SIGN_UP', async (userinfo) => {
     body: JSON.stringify(userinfo),
   });
   const user = await response.json();
+  if (response.ok) {
+    localStorage.removeItem('user');
+    localStorage.setItem('user', JSON.stringify(user));
+  }
   return user;
 });
 
