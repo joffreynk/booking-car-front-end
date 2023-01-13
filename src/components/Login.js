@@ -20,7 +20,7 @@ const Login = () => {
     };
     dispatch(login(userInfo));
     setUser_name('');
-    setPassword('')
+    setPassword('');
     navigate('/vehicles');
   };
 
