@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import URL from '../url';
 
 export const login = createAsyncThunk('LOGIN', async (userinfo) => {
-  const response = await fetch('http://localhost:3000/api/v1/auth/login', {
+  const response = await fetch(`${URL}auth/login`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
@@ -10,7 +11,6 @@ export const login = createAsyncThunk('LOGIN', async (userinfo) => {
     body: JSON.stringify(userinfo),
   });
   const user = await response.json();
-  console.log('Retrieved Info: ', user);
   if (response.ok) {
     localStorage.removeItem('user');
     localStorage.setItem('user', JSON.stringify(user));

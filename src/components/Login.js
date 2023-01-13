@@ -19,6 +19,8 @@ const Login = () => {
       password,
     };
     dispatch(login(userInfo));
+    setUser_name('');
+    setPassword('')
     navigate('/vehicles');
   };
 
@@ -28,7 +30,7 @@ const Login = () => {
         <div className="w-full h-full md:w-1/2 hidden md:block p-8 bg-no-repeat " style={{ backgroundImage: `url(${fetchedImgSrc})`, backgroundSize: 'cover' }} />
         <div className="w-full md:w-1/2 p-8">
           <div className="p-4 py-16 flex flex-col justify-center bg-blueGray-100 h-full">
-            <form className="md:max-w-lg mx-auto" onSubmit={(e) => handleSubmit(e)}>
+            <form className="md:max-w-lg mx-auto">
               <label htmlFor="signInInput-1" className="block mb-4">
                 <p className="mb-2 text-gray-900 font-semibold leading-normal">Username *</p>
                 <input required className="px-4 py-3.5 w-full text-gray-400 font-medium placeholder-gray-400 bg-white outline-none border border-gray-300 rounded-lg focus:ring focus:ring-indigo-300" onChange={(e) => setUser_name(e.target.value)} value={username} id="signInInput1-1" type="text" placeholder="Enter username" />
@@ -43,7 +45,8 @@ const Login = () => {
               </div>
               <button
                 className="mb-9 py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200"
-                type="submit"
+                type="button"
+                onClick={handleSubmit}
               >
                 Sign In
               </button>

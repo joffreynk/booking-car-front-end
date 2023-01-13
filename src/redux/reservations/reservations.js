@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-// const getUrl = 'https://api.spacexdata.com/v3/reservations';
+import URL from '../url';
 
 const FETCHED_RESERVATION = 'FETCHED_RESERVATION';
 const ADD_RESERVATION = 'ADD_RESERVATION';
@@ -12,7 +12,7 @@ export const getReservations = createAsyncThunk(
   async () => {
     const reservationArr = [];
     const user = JSON.parse(localStorage.getItem('user'));
-    const response = await fetch('http://localhost:3000/api/v1/reservations', {
+    const response = await fetch(`${URL}reservations`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',

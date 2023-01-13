@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import URL from '../url';
 
 const GET_VEHICLE = 'GET_VEHICLE';
 const ADD_VEHICLE = 'ADD_VEHICLE';
@@ -9,7 +10,7 @@ export const getVehicles = createAsyncThunk(
   async () => {
     const vehicleList = [];
     const user = JSON.parse(localStorage.getItem('user'));
-    const response = await fetch('http://localhost:3000/api/v1//vehicles', {
+    const response = await fetch(`${URL}vehicles`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',

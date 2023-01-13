@@ -2,10 +2,10 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 
 import vehicleSlice from './vehicles/vehicles';
 import reservationsSlice from './reservations/reservations';
-import loginSlice from './auth/login';
+import login_user from './auth/login';
 
 const reducer = combineReducers({
-  user: loginSlice,
+  user: login_user,
   vehicles: vehicleSlice,
   reservations: reservationsSlice,
 });
